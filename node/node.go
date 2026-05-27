@@ -1,9 +1,5 @@
 package node
 
-import (
-	"fmt"
-)
-
 const (
 	PageSize = 4096
 	MaxPages = 1024
@@ -29,32 +25,8 @@ var (
 )
 
 // FindChildByKey returns the index of the child which should contain
-//  the given key.
-func (d *InternalNode) FindChildByKey(key uint32) uint32 {
-	var (
-		minIdx = uint32(0)
-		maxIdx = d.Header.KeysNum
-	)
-	for minIdx != maxIdx {
-		idx := (minIdx + maxIdx) / 2
-		rightKey := d.ICells[idx].Key
-		if rightKey >= key {
-			maxIdx = idx
-		} else {
-			minIdx = idx + 1
-		}
-	}
+//
+//	the given key.
+func (d *InternalNode) FindChildByKey(key uint32) uint32 { _ = "STUB: not implemented"; return 0 }
 
-	return minIdx
-}
-
-func (d *InternalNode) Child(childIdx uint32) (ptr *uint32) {
-	keysNum := d.Header.KeysNum
-	if childIdx > keysNum {
-		panic(fmt.Sprintf("childIdx %d out of keysNum %d", childIdx, keysNum))
-	} else if childIdx == keysNum {
-		return &d.Header.RightChild
-	} else {
-		return &d.ICells[childIdx].Child
-	}
-}
+func (d *InternalNode) Child(childIdx uint32) (ptr *uint32) { _ = "STUB: not implemented"; return nil }

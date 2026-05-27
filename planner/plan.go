@@ -15,13 +15,4 @@ type Plan struct {
 	Stop           chan bool
 }
 
-func NewPlan(t *page.Table) (p *Plan) {
-	return &Plan{
-		table:          t,
-		FilteredPipe:   make(chan *node.Row),
-		UnFilteredPipe: make(chan *node.Row),
-		LimitedPipe:    make(chan *node.Row),
-		ErrorsPipe:     make(chan error, 1),
-		Stop:           make(chan bool),
-	}
-}
+func NewPlan(t *page.Table) (p *Plan) { _ = "STUB: not implemented"; return nil }
